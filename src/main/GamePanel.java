@@ -1,48 +1,44 @@
 package main;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
-
+import utils.Constants.UI;
 
 /*
- * 	The actual screen/panel where everything will be drawn. 
+ * 	The actual screen/panel where everything will be drawn--the canvas. 
  * 	This is only the inside screen within the frame; so, it dosent include min, max, close.
  * 
  */
+@SuppressWarnings("serial")
 public class GamePanel extends JPanel{
 	
 	private MouseInputs mouseInputs;
-	private int deltaX = 0, deltaY = 0;
+	private Game game;
 	
-	public GamePanel() {
+	
+	public GamePanel(Game game) {
+		this.game = game;
 		mouseInputs = new MouseInputs();
 		
+		setPanelSize();
 		addKeyListener(new KeyboardInputs(this));
 		addMouseListener(mouseInputs);
 		addMouseMotionListener(mouseInputs);
-		
 	}
 	
-	public void changeDeltaX(int value) {
-		deltaX += value;
+	private void setPanelSize() {
+		Dimension panelSize = new Dimension(UI.WIDTH, UI.HEIGHT);
+		setPreferredSize(panelSize);
 	}
-	
-	public void changeDeltaY(int value) {
-		deltaY += value;
-	}
-	
+
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-		g.fillRect(100 + deltaX, 100 + deltaY, 50, 50);
-		
-		//remove this with an actual game loop
-		repaint();
+		game.draw(g);
 	}
-	
 }

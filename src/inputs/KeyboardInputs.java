@@ -20,24 +20,23 @@ public class KeyboardInputs implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
-		case KeyEvent.VK_W: {
-			gamePanel.changeDeltaY(-10);
-			break;
+			case KeyEvent.VK_W: {
+	//			gamePanel.changeDeltaY(-10);
+				break;
+			}
+			case KeyEvent.VK_S: {
+	//			gamePanel.changeDeltaY(10);
+				break;
+			}		
+			case KeyEvent.VK_D: {
+	//			gamePanel.changeDeltaX(10);
+				break;
+			}		
+			case KeyEvent.VK_A: {
+	//			gamePanel.changeDeltaX(-10);
+				break;
+			}
 		}
-		case KeyEvent.VK_S: {
-			gamePanel.changeDeltaY(10);
-			break;
-		}		
-		case KeyEvent.VK_D: {
-			gamePanel.changeDeltaX(10);
-			break;
-		}		
-		case KeyEvent.VK_A: {
-			gamePanel.changeDeltaX(-10);
-			break;
-		}
-		}
-		
 	}
 
 	@Override

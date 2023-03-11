@@ -2,6 +2,8 @@ package main;
 
 import java.awt.Graphics;
 
+import gamestate.Started;
+
 
 /*
  *	Main class where all the components (Panel, Window, etc.) will be combined  
@@ -12,6 +14,7 @@ public class Game {
 	
 	private GameWindow gameWindow;
 	private GamePanel gamePanel;
+	private Started started;
 
 	
 	/**
@@ -19,11 +22,10 @@ public class Game {
 	 * 	and starting the game loop
 	 */
 	public Game() {
-		
-		gamePanel = new GamePanel();
+		initClasses();
+		gamePanel = new GamePanel(this);
 		gameWindow = new GameWindow(gamePanel);
 		gamePanel.requestFocus();
-		
 	}
 
 	
@@ -31,16 +33,16 @@ public class Game {
 	 * 	Holds the updating logic for each component.
 	 */
 	public void update() {
-		
+		started.update();
 		
 	}
-	
 
+	
 	/**
 	 * 	Holds the drawing/rendering for each component.
 	 */
 	public void draw(Graphics g) {
-		
+		started.draw(g);
 		
 	}
 
@@ -49,7 +51,7 @@ public class Game {
 	 * 	Will initialize classes to de-clutter the code block in our constructor class. 
 	 */
 	private void initClasses() {
-		
+		started = new Started();
 		
 	}
 	
