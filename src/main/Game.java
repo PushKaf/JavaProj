@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import gamestate.Started;
 
 
-/*
+/**
  *	Main class where all the components (Panel, Window, etc.) will be combined  
  *	to create the simulation. This will also house our UPS (updates per second - the tick)
  *	and FPS which runs in another thread so it dosen't affect gameplay. 
@@ -22,10 +22,10 @@ public class Game {
 	 * 	and starting the game loop
 	 */
 	public Game() {
-		initClasses();
 		gamePanel = new GamePanel(this);
+		initClasses();
 		gameWindow = new GameWindow(gamePanel);
-		gamePanel.requestFocus();
+		gamePanel.requestFocusInWindow();
 	}
 
 	
@@ -43,7 +43,6 @@ public class Game {
 	 */
 	public void draw(Graphics g) {
 		started.draw(g);
-		
 	}
 
 	
@@ -51,8 +50,15 @@ public class Game {
 	 * 	Will initialize classes to de-clutter the code block in our constructor class. 
 	 */
 	private void initClasses() {
-		started = new Started();
+		started = new Started(gamePanel);
 		
+	}
+	
+	/**
+	 * 	
+	 */
+	public Started getStarted() {
+		return started;
 	}
 	
 }
