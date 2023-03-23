@@ -15,7 +15,7 @@ import utils.Constants.UI;
  * 
  */
 @SuppressWarnings("serial")
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel {
 	
 	private MouseInputs mouseInputs;
 	private Game game;
