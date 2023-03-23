@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.RepaintManager;
 
-import entities.Dog;
+import entities.*;
 import main.GamePanel;
 import utils.Constants.UI;
 import utils.DataLoader;
@@ -18,6 +18,7 @@ public class Started {
 	
 	private BufferedImage backgroundImg;
 	private Dog dog;
+	private Tree tree;
 	private GamePanel gamePanel;
 	
 	public Started(GamePanel gamePanel) {
@@ -26,7 +27,8 @@ public class Started {
 		
 		this.gamePanel = gamePanel;
 		backgroundImg = DataLoader.GetSpriteData(DataLoader.MAIN_BACKGROUND);
-		dog = new Dog();
+		dog = new Dog(0, 0);
+		tree = new Tree(200, 200);
 	}
 	
 	
@@ -40,13 +42,11 @@ public class Started {
 		//Specifying image, (0,0) upper left start pos, (1280x720) size of window, null->imageObserver, will always be null for us
 		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);
 		dog.draw(g);
-		
+		tree.draw(g);
 	}
 	
 	//
 	public void keyPressed(KeyEvent e) {
 		dog.keyPressed(e);
 	}
-	
-	
 }

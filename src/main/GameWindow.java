@@ -22,7 +22,5 @@ public class GameWindow extends JFrame{
 		pack();
 		
 		setVisible(true);
-		
-		
 	}
 }
