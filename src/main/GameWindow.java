@@ -13,6 +13,7 @@ public class GameWindow extends JFrame{
 		//Making sure the "x" button actually terminates the program
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
+
 		//Adding the panel so we can see stuff
 		add(gamePanel);
 //		setResizable(false);
