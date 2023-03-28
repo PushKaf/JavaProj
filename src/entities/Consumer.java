@@ -25,4 +25,6 @@ abstract class Consumer extends Creature {
 	//All consumers will need a draw and update method
 	abstract void draw(Graphics g);
 	abstract void update();
+	//a helper method would be ideal as well, for finding and eating other entities
+	abstract void consume();
 }
