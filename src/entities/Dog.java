@@ -18,8 +18,12 @@ public class Dog extends Consumer {
 	}
 	
 	public void update() {
-		//Dog Logic
-		
+		//Dog Logic- move, eat, reproduce, die (if applicable)
+		consume();
+	}
+	
+	public void consume(){
+		//Traverses entities List for consumers/producers nearby, and eats the nearest that also happens to be lower on the food chain	
 	}
 	
 	// Draw the sprite on screen with x and y so we can later change positions
