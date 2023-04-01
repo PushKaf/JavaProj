@@ -9,8 +9,8 @@ import java.awt.Graphics;
 abstract class Producer extends Creature {
 	private int growSpeed; //The amount of energy gained each cycle of growth
 	
-	public Producer(int x, int y, int energy, int reproduceVal, int growSpeed, int strength) {
-		super(x, y, energy, reproduceVal, strength);
+	public Producer(int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength) {
+		super(x, y, width, height, energy, reproduceVal, strength);
 		this.growSpeed = growSpeed;
 	}
 	

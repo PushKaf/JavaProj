@@ -16,8 +16,8 @@ abstract class Creature extends Entity {
 		strength = 1;
 	}
 	
-	public Creature(int x, int y, int energy, int reproduceVal, int strength) {
-		super(x, y);
+	public Creature(int x, int y, int width, int height, int energy, int reproduceVal, int strength) {
+		super(x, y, width, height);
 		this.energy = energy;
 		this.reproduceVal = reproduceVal;
 	}

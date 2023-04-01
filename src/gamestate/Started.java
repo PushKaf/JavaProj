@@ -27,14 +27,14 @@ public class Started {
 		
 		this.gamePanel = gamePanel;
 		backgroundImg = DataLoader.GetSpriteData(DataLoader.MAIN_BACKGROUND);
-		dog = new Dog(0, 0);
+		dog = new Dog(10, 10);
 		tree = new Tree(200, 200);
 	}
 	
 	
 	//Once we have buttons you can click, we'll call the update here
 	public void update() {
-		
+		dog.update();
 	}
 	
 	//Drawing the background
