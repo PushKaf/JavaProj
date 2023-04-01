@@ -13,13 +13,15 @@ public class Tree extends Producer {
 	private BufferedImage sprite;
 	
 	public Tree(int x, int y) { //Only position is unique to each Tree
-		super(x, y, 10, 20, 2, 0); //Preset values for starting energy, reproduceVal, and growthSpeed
+		super(x, y, 128, 64, 10, 20, 2, 0); //Preset values for starting energy, reproduceVal, and growthSpeed
 		
 		sprite = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
 	}
 
 	@Override
 	public void draw(Graphics g) {
+		drawViewBox(g);
+		drawHitBox(g);
 		g.drawImage(sprite, x, y, 128, 64, null);
 	}
 

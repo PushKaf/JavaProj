@@ -9,8 +9,8 @@ import java.awt.Graphics;
 abstract class Consumer extends Creature {
 	private int speed;
 	
-	public Consumer(int x, int y, int energy, int reproduceVal, int strength, int speed) {
-		super(x, y, energy, reproduceVal, strength);
+	public Consumer(int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed) {
+		super(x, y, width, height, energy, reproduceVal, strength);
 		this.speed = speed;
 	}
 	
@@ -25,6 +25,4 @@ abstract class Consumer extends Creature {
 	//All consumers will need a draw and update method
 	abstract void draw(Graphics g);
 	abstract void update();
-	//a helper method would be ideal as well, for finding and eating other entities
-	abstract void consume();
 }

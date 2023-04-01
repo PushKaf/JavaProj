@@ -1,7 +1,7 @@
 package main;
 
 import java.awt.Graphics;
-import java.util.*;
+
 import gamestate.Started;
 
 
@@ -10,12 +10,12 @@ import gamestate.Started;
  *	to create the simulation. This will also house our UPS (updates per second - the tick)
  *	and FPS which runs in another thread so it dosen't affect gameplay. 
  */
-public class Game<T extends Entity> {
+public class Game {
 	
 	private GameWindow gameWindow;
 	private GamePanel gamePanel;
 	private Started started;
-	private ArrayList<T> entities;
+
 	
 	/**
 	 * 	Brings everything together by initializing classes
@@ -34,8 +34,7 @@ public class Game<T extends Entity> {
 	 */
 	public void update() {
 		started.update();
-		for (T t: entities)
-			t.update();
+		
 	}
 
 	
@@ -52,7 +51,7 @@ public class Game<T extends Entity> {
 	 */
 	private void initClasses() {
 		started = new Started(gamePanel);
-		entites = new ArrayList<T>();
+		
 	}
 	
 	/**
