@@ -33,8 +33,9 @@ public class Game {
 	 * 	Holds the updating logic for each component.
 	 */
 	public void update() {
-		started.update();
 		
+		started.update();
+
 	}
 
 	

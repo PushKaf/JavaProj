@@ -3,14 +3,17 @@ package entities;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import utils.DataLoader;
 
 /*
  * A dog is a consumer with a set values
+ * essentially a consumer with specific values and a sprite
  */
 public class Dog extends Consumer {
 	
-	private BufferedImage sprite;
+	private static BufferedImage sprite = DataLoader.GetSpriteData(DataLoader.DOG_ATLAS);
 //	
 //	private int hitBoxWidth;
 //	private int hitBoxHeight;
@@ -19,36 +22,17 @@ public class Dog extends Consumer {
 	
 	
 	public Dog(int x, int y) { //Only position is unique to each Dog
-		super(x, y, 128, 64, 10, 20, 1, 10);
-		sprite = DataLoader.GetSpriteData(DataLoader.DOG_ATLAS);
-		
-		
+		//int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed
+		//I set energy to 499 to maximize dog life without having it reproduce so it can only reproduce after it eats a tree
+		super(x, y, 128, 64, 499, 500, 1, 10, sprite);
 		
 	}
 	
-	public void update() {
-//		getViewBox().intersects()
-		
-//		if(getViewBox().intersects()) {
-//			System.out.println("OPPPOPOPOPOPOPO");
-//		}
-		
-		
-		
-//		System.out.println("L");
-		
-		
-		
-		//Dog Logic
-//		updateBoxes(x, y);
+	public Dog reproduce(int x, int y)
+	{
+		return (new Dog (x, y));
 	}
 	
-	// Draw the sprite on screen with x and y so we can later change positions
-	public void draw(Graphics g) {
-		drawViewBox(g);
-		drawHitBox(g);
-		g.drawImage(sprite, x, y, 128, 64, null);
-	}
 
 	//Key inputs
 	public void keyPressed(KeyEvent e) {
