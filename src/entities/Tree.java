@@ -12,6 +12,7 @@ import utils.DataLoader;
  */
 public class Tree extends Producer {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
 	public static int WIDTH = 128;
@@ -22,6 +23,9 @@ public class Tree extends Producer {
 	public static int STRENGTH = 1;
 >>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
 	
+=======
+	private BufferedImage sprite;
+>>>>>>> parent of 99162c8 (Added Inventory)
 	
 	public Tree(int x, int y) { //Only position is unique to each Tree
 		//int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, picture
@@ -37,7 +41,7 @@ public class Tree extends Producer {
 	}
 
 	@Override
-	public void update() {
+	void update() {
 		// TODO Auto-generated method stub
 		
 	}

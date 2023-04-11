@@ -1,6 +1,7 @@
 package entities;
 
 import java.awt.Graphics;
+<<<<<<< HEAD
 import java.awt.image.BufferedImage;
 <<<<<<< HEAD
 =======
@@ -9,15 +10,17 @@ import java.util.ArrayList;
 import utils.Constants;
 import utils.Constants.UI;
 >>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
+=======
+>>>>>>> parent of 99162c8 (Added Inventory)
 
 /*
  * Consumers cannot produce their own energy
  * Consumers eat other creatures and can move
  * Put update, most of important info in here
  */
-public abstract class Consumer extends Creature {
+abstract class Consumer extends Creature {
 	private int speed;
-
+	
 	public Consumer(int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed) {
 public class Consumer extends Creature {
 	private int speed;
@@ -29,9 +32,7 @@ public class Consumer extends Creature {
 		this.sprite = sprite;
 	}
 	
-	
 	//Accessors and Mutators
-	
 	public int getSpeed() {
 		return speed;
 	}
@@ -39,6 +40,7 @@ public class Consumer extends Creature {
 		this.speed = speed;
 	}
 	//All consumers will need a draw and update method
+<<<<<<< HEAD
 	public abstract void draw(Graphics g);
 	public abstract void update();
 
@@ -105,4 +107,8 @@ public class Consumer extends Creature {
 		updateBoxes(x, y, (int)this.getViewBox().getWidth()/2, (int)this.getViewBox().getHeight()/2);
 	}
 >>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
+=======
+	abstract void draw(Graphics g);
+	abstract void update();
+>>>>>>> parent of 99162c8 (Added Inventory)
 }

@@ -1,17 +1,20 @@
 package entities;
 
 import java.awt.Graphics;
+<<<<<<< HEAD
 import java.awt.image.BufferedImage;
 <<<<<<< HEAD
 =======
 import java.util.ArrayList;
 >>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
+=======
+>>>>>>> parent of 99162c8 (Added Inventory)
 
 /*
  * Producers will create energy
  * Producers will not have a move method but can still reproduce
  */
-public abstract class Producer extends Creature {
+abstract class Producer extends Creature {
 	private int growSpeed; //The amount of energy gained each cycle of growth
 	private BufferedImage sprite;
 	
@@ -33,6 +36,7 @@ public abstract class Producer extends Creature {
 	}
 
 	//All producers will need a draw and update method
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public abstract void draw(Graphics g);
 	public abstract void update();
@@ -61,4 +65,8 @@ public abstract class Producer extends Creature {
 	
 	
 >>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
+=======
+	abstract void draw(Graphics g);
+	abstract void update();
+>>>>>>> parent of 99162c8 (Added Inventory)
 }
