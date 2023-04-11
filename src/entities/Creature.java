@@ -23,7 +23,6 @@ public class Creature extends Entity {
 		incubating = false;
 	}
 	
-	//All creatures will need a draw and update method
 	public void update(ArrayList<Creature> main)
 	{
 		//meant to be overriden

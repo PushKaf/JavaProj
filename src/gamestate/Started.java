@@ -56,7 +56,11 @@ public class Started {
 				if (e instanceof Dog) {	//we're going to need to make one of these lines for each class? Better way to do this?
 					c = new Dog(e.getX(), e.getY());
 				}
-				e.setEnergy(e.getReproduceVal() - 100);// so creatures don't keep spitting out children
+				if (e instanceof Tree) {	//we're going to need to make one of these lines for each class? Better way to do this?
+					c = new Tree(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2);
+				}
+				e.setEnergy(e.getReproduceVal()/2 -100);// so creatures don't keep spitting out children
+
 				main.add(c);
 			}
 		}
@@ -75,8 +79,7 @@ public class Started {
 		}
 	}
 
-	//
 	public void keyPressed(KeyEvent e) {
-		dog.keyPressed(e);
+		//dog.keyPressed(e);
 	}
 }
