@@ -15,18 +15,15 @@ import utils.Constants.UI;
  * Consumers eat other creatures and can move
  * Put update, most of important info in here
  */
-<<<<<<< HEAD
 public abstract class Consumer extends Creature {
 	private int speed;
 
 	public Consumer(int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed) {
-=======
 public class Consumer extends Creature {
 	private int speed;
 	private BufferedImage sprite;
 	
 	public Consumer(int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed, BufferedImage sprite) {
->>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
 		super(x, y, width, height, energy, reproduceVal, strength);
 		this.speed = speed;
 		this.sprite = sprite;
@@ -42,36 +39,9 @@ public class Consumer extends Creature {
 		this.speed = speed;
 	}
 	//All consumers will need a draw and update method
-<<<<<<< HEAD
 	public abstract void draw(Graphics g);
 	public abstract void update();
-=======
-	@Override
-	public void draw(Graphics g)
-	{
-		drawViewBox(g);
-		drawHitBox(g);
-		g.drawImage(sprite, x, y, 128, 64, null);
-	}
-	@Override
-	public void update(ArrayList<Creature> main)
-	{		
-		if (energy <= 0)
-			delete = true;
-		else
-		{
-			sense(main);
-			energy -= 1;
-			if (energy >= reproduceVal)
-			{
-				incubating = true;
-			}
-		}
-		if (x > UI.WIDTH) x = 0;
-		if (y > UI.HEIGHT) y = 0;
-		if (x < 0) x = UI.WIDTH;
-		if (y < 0) y = UI.HEIGHT;
-	}
+
 	private void sense(ArrayList<Creature> main)
 	{
 		Creature hold = new Creature();
