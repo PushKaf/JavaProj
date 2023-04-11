@@ -4,19 +4,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 public abstract class Creature extends Entity {
 	protected int energy; //Current energy of the creature, used for various functions
 	protected boolean incubating; //if Creature is incubating creature (we want to change the main arrayList after updates are finished)
 	protected int reproduceVal;	//Value of energy needed to reproduce
-=======
-abstract class Creature extends Entity {
-	private int energy; //Current energy of the creature, used for various functions
-	private int reproduceVal; //The energy value needed to be exceeded to create another creature object
-	private int strength; //Determines the creature's placement on the food chain
-	private boolean isDead = false;
->>>>>>> parent of 99162c8 (Added Inventory)
 	
+	protected BufferedImage sprite;
 	public Creature() {
 		super();
 		energy = 0;
@@ -32,11 +25,10 @@ abstract class Creature extends Entity {
 	}
 	
 	//All creatures will need a draw and update method
-	abstract void draw(Graphics g);
-	abstract void update();
+	public abstract void draw(Graphics g);
+	public abstract void update();
 	
 	//Accessors and Mutators
-<<<<<<< HEAD
 	
 	public BufferedImage getSprite() {
 		return sprite;
@@ -50,8 +42,6 @@ abstract class Creature extends Entity {
 		return y;
 	}
 
-=======
->>>>>>> parent of 99162c8 (Added Inventory)
 	public int getEnergy() {
 		return energy;
 	}
