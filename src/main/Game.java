@@ -40,7 +40,6 @@ public class Game implements Runnable{
 	 */
 	public void update() {
 		started.update();
-		
 	}
 	
 	/**

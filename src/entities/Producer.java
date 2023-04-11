@@ -1,12 +1,13 @@
 package entities;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 /*
  * Producers will create energy
  * Producers will not have a move method but can still reproduce
  */
-abstract class Producer extends Creature {
+public abstract class Producer extends Creature {
 	private int growSpeed; //The amount of energy gained each cycle of growth
 	
 	public Producer(int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength) {
@@ -26,6 +27,6 @@ abstract class Producer extends Creature {
 	}
 
 	//All producers will need a draw and update method
-	abstract void draw(Graphics g);
-	abstract void update();
+	public abstract void draw(Graphics g);
+	public abstract void update();
 }

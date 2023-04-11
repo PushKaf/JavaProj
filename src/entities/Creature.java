@@ -3,12 +3,13 @@ package entities;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-abstract class Creature extends Entity {
+public abstract class Creature extends Entity {
 	private int energy; //Current energy of the creature, used for various functions
 	private int reproduceVal; //The energy value needed to be exceeded to create another creature object
 	private int strength; //Determines the creature's placement on the food chain
 	private boolean isDead = false;
 	
+	protected BufferedImage sprite;
 	public Creature() {
 		super();
 		energy = 10;
@@ -23,10 +24,15 @@ abstract class Creature extends Entity {
 	}
 	
 	//All creatures will need a draw and update method
-	abstract void draw(Graphics g);
-	abstract void update();
+	public abstract void draw(Graphics g);
+	public abstract void update();
 	
 	//Accessors and Mutators
+	
+	public BufferedImage getSprite() {
+		return sprite;
+	}
+	
 	public int getEnergy() {
 		return energy;
 	}
