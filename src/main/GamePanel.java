@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 package main;
 
 import java.awt.BorderLayout;
-=======
-
-package main;
-
->>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -33,11 +27,7 @@ public class GamePanel extends JPanel {
 		mouseInputs = new MouseInputs();
 		
 		// Add in the listeners
-<<<<<<< HEAD
 //		setLayout(new BorderLayout());
-=======
-		
->>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
 		setPanelSize();
 		addKeyListener(new KeyboardInputs(this));
 		addMouseListener(mouseInputs);
@@ -53,17 +43,9 @@ public class GamePanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		game.draw(g);
-<<<<<<< HEAD
-=======
-		repaint();
->>>>>>> 39d2fe99fcf471acc2643d099341412068c94273
 	}
 	
 	public Game getGame() {
 		return game;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 39d2fe99fcf471acc2643d099341412068c94273

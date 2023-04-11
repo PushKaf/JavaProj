@@ -2,26 +2,25 @@ package entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 public abstract class Creature extends Entity {
-	protected int energy; //Current energy of the creature, used for various functions
-	protected boolean incubating; //if Creature is incubating creature (we want to change the main arrayList after updates are finished)
-	protected int reproduceVal;	//Value of energy needed to reproduce
+	private int energy; //Current energy of the creature, used for various functions
+	private int reproduceVal; //The energy value needed to be exceeded to create another creature object
+	private int strength; //Determines the creature's placement on the food chain
+	private boolean isDead = false;
 	
 	protected BufferedImage sprite;
 	public Creature() {
 		super();
-		energy = 0;
-		incubating = false;
-		reproduceVal = 10000;
+		energy = 10;
+		reproduceVal = 20;
+		strength = 1;
 	}
 	
 	public Creature(int x, int y, int width, int height, int energy, int reproduceVal, int strength) {
-		super(x, y, width, height, strength);
+		super(x, y, width, height);
 		this.energy = energy;
-		this.reproduceVal  = reproduceVal;
-		incubating = false;
+		this.reproduceVal = reproduceVal;
 	}
 	
 	//All creatures will need a draw and update method
@@ -34,14 +33,6 @@ public abstract class Creature extends Entity {
 		return sprite;
 	}
 	
-	//Accessors and Mutators
-	public int getX() {
-		return x;
-	}
-	public int getY() {
-		return y;
-	}
-
 	public int getEnergy() {
 		return energy;
 	}
@@ -54,17 +45,16 @@ public abstract class Creature extends Entity {
 	public void setReproduceVal(int reproduceVal) {
 		this.reproduceVal = reproduceVal;
 	}
-	public boolean getIncubating() {
-		return incubating;
-	}
-	public void setIncubating(boolean incubating) {
-		this.incubating  = incubating ;
-	}
 	public int getStrength() {
 		return strength;
 	}
-	public void setStrength(int strength) {
+	public void setStregnth(int strength) {
 		this.strength = strength;
 	}
-
+	public boolean isDead() {
+		return isDead;
+	}
+	public void setDead(boolean isDead) {
+		this.isDead = isDead;
+	}
 }
