@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package main;
 
 import java.awt.Dimension;
@@ -101,4 +100,3 @@ public class GamePanel extends JPanel {
 		return game;
 	}
 }
->>>>>>> 7f0cfcc3aa3d4a5a024f052d349fa511ab2fda0f
