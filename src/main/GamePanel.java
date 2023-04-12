@@ -1,6 +1,6 @@
-
 package main;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -27,7 +27,8 @@ public class GamePanel extends JPanel {
 		mouseInputs = new MouseInputs();
 		
 		// Add in the listeners
-		
+//		setLayout(new BorderLayout());
+
 		setPanelSize();
 		addKeyListener(new KeyboardInputs(this));
 		addMouseListener(mouseInputs);
@@ -44,6 +45,7 @@ public class GamePanel extends JPanel {
 		super.paintComponent(g);
 		game.draw(g);
 		repaint();
+
 	}
 	
 	public Game getGame() {

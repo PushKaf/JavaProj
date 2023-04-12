@@ -38,6 +38,7 @@ abstract class Entity {
 	}
 	
 	public Entity(int x, int y, int width, int height, int strength) {
+  
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -46,6 +47,7 @@ abstract class Entity {
 		
 		hitBox = new Rectangle2D.Float(x, y, width, height);
 		viewBox = new Rectangle2D.Float(x - width/2, y - height/2, width*2, height*2);
+
 	}
 	
 	protected void drawHitBox(Graphics g) {
@@ -67,6 +69,7 @@ abstract class Entity {
 		
 		viewBox.x = x - width/2;
 		viewBox.y = y - height/2;
+
 	}
 
 	public Rectangle2D.Float getHitBox() {

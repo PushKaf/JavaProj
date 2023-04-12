@@ -8,14 +8,12 @@ import java.util.ArrayList;
  * Producers will create energy
  * Producers will not have a move method but can still reproduce
  */
-abstract class Producer extends Creature {
+public abstract class Producer extends Creature {
 	private int growSpeed; //The amount of energy gained each cycle of growth
-	private BufferedImage sprite;
 	
-	public Producer(int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, BufferedImage sprite) {
+	public Producer(int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength) {
 		super(x, y, width, height, energy, reproduceVal, strength);
 		this.growSpeed = growSpeed;
-		this.sprite = sprite;
 	}
 	
 	public void grow() {
