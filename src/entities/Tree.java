@@ -10,24 +10,18 @@ import utils.DataLoader;
  * Reproduce value and grow speed will be consistent for all Trees
  */
 public class Tree extends Producer {
+
+	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
+	public static int WIDTH = 128;
+	public static int HEIGHT = 64;
+	public static int ENERGY = 500;
+	public static int REPRODUCEVAL = 1000;
+	public static int GROWSPEED = 1;
+	public static int STRENGTH = 1;
 	
 	
 	public Tree(int x, int y) { //Only position is unique to each Tree
-		super(x, y, 128, 64, 10, 20, 2, 0); //Preset values for starting energy, reproduceVal, and growthSpeed
-		
-		sprite = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
-	}
-
-	@Override
-	public void draw(Graphics g) {
-		drawViewBox(g);
-		drawHitBox(g);
-		g.drawImage(sprite, x, y, 128, 64, null);
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+		//int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, picture
+		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, GROWSPEED, STRENGTH, SPRITE);
 	}
 }

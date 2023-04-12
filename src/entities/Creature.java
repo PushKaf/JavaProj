@@ -23,9 +23,15 @@ public abstract class Creature extends Entity {
 		this.reproduceVal = reproduceVal;
 	}
 	
-	//All creatures will need a draw and update method
-	public abstract void draw(Graphics g);
-	public abstract void update();
+	public void update(ArrayList<Creature> main)
+	{
+		//meant to be overriden
+	}
+	public void draw(Graphics g)
+	{
+		//meant to be overriden, there a better way to do this?
+	}
+
 	
 	//Accessors and Mutators
 	
