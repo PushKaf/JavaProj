@@ -2,6 +2,7 @@ package entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /*
  * Producers will create energy
@@ -29,6 +30,27 @@ abstract class Producer extends Creature {
 	}
 
 	//All producers will need a draw and update method
-//	abstract void draw(Graphics g);
-//	abstract void update();
+	@Override
+	public void draw(Graphics g) {
+		drawViewBox(g);
+		drawHitBox(g);
+		g.drawImage(sprite, x, y, 128, 64, null);
+	}
+	
+	@Override
+	public void update(ArrayList<Creature> main)
+	{
+		if (energy <= 0)
+			delete = true;
+		else
+		{
+			energy += growSpeed;
+			if (energy >= reproduceVal)
+			{
+				incubating = true;
+			}
+		}
+	}
+	
+	
 }

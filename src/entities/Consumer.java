@@ -29,7 +29,6 @@ public class Consumer extends Creature {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
 	//All consumers will need a draw and update method
 	@Override
 	public void draw(Graphics g)
@@ -109,7 +108,7 @@ public class Consumer extends Creature {
 			y += speed;
 		else if (z ==3)
 			y -= speed;
-		updateBoxes(x, y);
+		updateBoxes(x, y, (int)this.getViewBox().getWidth()/2, (int)this.getViewBox().getHeight()/2);
 	}
 	protected void move(int otherX, int otherY)
 	{
@@ -117,6 +116,6 @@ public class Consumer extends Creature {
 		double y1 = (otherY-y)/Math.pow((Math.pow((otherX-x), 2) + Math.pow((otherY-y), 2)), 0.5);
 		x += (x1)*speed;
 		y += (y1)*speed;
-		updateBoxes(x, y);
+		updateBoxes(x, y, (int)this.getViewBox().getWidth()/2, (int)this.getViewBox().getHeight()/2);
 	}
 }

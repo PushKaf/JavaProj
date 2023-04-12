@@ -1,3 +1,4 @@
+
 package entities;
 
 import java.awt.Color;
@@ -44,7 +45,7 @@ abstract class Entity {
 		this.strength = strength;
 		
 		hitBox = new Rectangle2D.Float(x, y, width, height);
-		viewBox = new Rectangle2D.Float(x, y, width*2, height*2);
+		viewBox = new Rectangle2D.Float(x - width/2, y - height/2, width*2, height*2);
 	}
 	
 	protected void drawHitBox(Graphics g) {
@@ -60,12 +61,12 @@ abstract class Entity {
 	abstract void update(ArrayList<Creature> main);
 	abstract void draw(Graphics g);
 	
-	protected void updateBoxes(int x, int y) {
+	protected void updateBoxes(int x, int y, int width, int height) {
 		hitBox.x = x;
 		hitBox.y = y;
 		
-		viewBox.x = x;
-		viewBox.y = y;
+		viewBox.x = x - width/2;
+		viewBox.y = y - height/2;
 	}
 
 	public Rectangle2D.Float getHitBox() {
@@ -75,5 +76,4 @@ abstract class Entity {
 	public Rectangle2D.Float getViewBox() {
 		return viewBox;
 	}
-	
 }
