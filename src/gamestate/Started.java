@@ -24,7 +24,7 @@ public class Started {
 
 	private Inventory inventory;
 	
-	public static ArrayList<Creature> creatures = new ArrayList<Creature>();
+	public static ArrayList<Creature> main = new ArrayList<Creature>();
 	
 	public Started(GamePanel gamePanel) {
 		
@@ -36,8 +36,8 @@ public class Started {
 		dog = new Dog(100, 100);
 		tree = new Tree(100, 1000);
 		
-		creatures.add(new Tree(0, 10));
-		creatures.add(new Dog(1000, 100));
+		main.add(new Tree(0, 10));
+		main.add(new Dog(1000, 100));
 		
 		inventory = new Inventory(gamePanel);
 	}
@@ -73,7 +73,7 @@ public class Started {
 		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);
 		inventory.draw(g);
 		
-		for(Creature c : creatures) {
+		for(Creature c : main) {
 			c.draw(g);
 		}
 	}

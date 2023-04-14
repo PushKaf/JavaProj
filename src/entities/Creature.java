@@ -2,25 +2,27 @@ package entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
-public abstract class Creature extends Entity {
-	private int energy; //Current energy of the creature, used for various functions
-	private int reproduceVal; //The energy value needed to be exceeded to create another creature object
-	private int strength; //Determines the creature's placement on the food chain
-	private boolean isDead = false;
+public class Creature extends Entity {
+	protected int energy; //Current energy of the creature, used for various functions
+	protected boolean incubating; //if Creature is incubating creature (we want to change the main arrayList after updates are finished)
+	protected int reproduceVal;	//Value of energy needed to reproduce
+	protected BufferedImage sprite;	//the Image of Creature
 	
-	protected BufferedImage sprite;
 	public Creature() {
 		super();
-		energy = 10;
-		reproduceVal = 20;
-		strength = 1;
+		energy = 0;
+		incubating = false;
+		reproduceVal = 10000;
 	}
 	
-	public Creature(int x, int y, int width, int height, int energy, int reproduceVal, int strength) {
-		super(x, y, width, height);
+	public Creature(int x, int y, int width, int height, int energy, int reproduceVal, int strength, BufferedImage sprite) {
+		super(x, y, width, height, strength);
 		this.energy = energy;
-		this.reproduceVal = reproduceVal;
+		this.reproduceVal  = reproduceVal;
+		incubating = false;
+		this.sprite = sprite;
 	}
 	
 	public void update(ArrayList<Creature> main)
@@ -31,14 +33,14 @@ public abstract class Creature extends Entity {
 	{
 		//meant to be overriden, there a better way to do this?
 	}
-
 	
 	//Accessors and Mutators
-	
-	public BufferedImage getSprite() {
-		return sprite;
+	public int getX() {
+		return x;
 	}
-	
+	public int getY() {
+		return y;
+	}
 	public int getEnergy() {
 		return energy;
 	}
@@ -51,16 +53,21 @@ public abstract class Creature extends Entity {
 	public void setReproduceVal(int reproduceVal) {
 		this.reproduceVal = reproduceVal;
 	}
+	public boolean getIncubating() {
+		return incubating;
+	}
+	public void setIncubating(boolean incubating) {
+		this.incubating  = incubating ;
+	}
 	public int getStrength() {
 		return strength;
 	}
-	public void setStregnth(int strength) {
+	public void setStrength(int strength) {
 		this.strength = strength;
 	}
-	public boolean isDead() {
-		return isDead;
+	public BufferedImage getSprite()
+	{
+		return sprite;
 	}
-	public void setDead(boolean isDead) {
-		this.isDead = isDead;
-	}
+
 }

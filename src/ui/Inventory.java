@@ -48,7 +48,7 @@ public class Inventory {
 			creature.setOpaque(false);
 			creature.setContentAreaFilled(false);
 			creature.setMargin(new Insets(5,5,5,5));
-			creature.addActionListener(e -> Started.creatures.add(new Dog(rand.nextInt(1000), rand.nextInt(1000))));
+			creature.addActionListener(e -> Started.main.add(new Dog(rand.nextInt(1000), rand.nextInt(1000))));
 //			creature.setPreferredSize(new Dimension(1000, 1000));
 			
 			panel.add(creature);

@@ -2,22 +2,25 @@ package entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+import utils.Constants;
+import utils.Constants.UI;
 
 /*
  * Consumers cannot produce their own energy
  * Consumers eat other creatures and can move
+ * Put update, most of important info in here
  */
-public abstract class Consumer extends Creature {
+public class Consumer extends Creature {
 	private int speed;
-
-	public Consumer(int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed) {
-		super(x, y, width, height, energy, reproduceVal, strength);
+	
+	public Consumer(int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed, BufferedImage sprite) {
+		super(x, y, width, height, energy, reproduceVal, strength, sprite);
 		this.speed = speed;
 	}
 	
-	
 	//Accessors and Mutators
-	
 	public int getSpeed() {
 		return speed;
 	}
@@ -113,3 +116,4 @@ public abstract class Consumer extends Creature {
 		y += (y1)*speed;
 		updateBoxes(x, y, (int)this.getViewBox().getWidth()/2, (int)this.getViewBox().getHeight()/2);
 	}
+}

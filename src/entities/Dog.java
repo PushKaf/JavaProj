@@ -4,7 +4,7 @@ package entities;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-
+import java.util.ArrayList;
 
 import utils.DataLoader;
 
@@ -28,11 +28,7 @@ public class Dog extends Consumer {
 		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, STRENGTH, SPEED, SPRITE);
 		
 	}
-
-
-	public Dog(int x, int y) { //Only position is unique to each Dog
-		super(x, y, 128, 64, 10, 20, 1, 10);
-		sprite = DataLoader.GetSpriteData(DataLoader.DOG_ATLAS);
+	
 //	//Key inputs
 //	public void keyPressed(KeyEvent e) {
 //		switch(e.getKeyCode()) {

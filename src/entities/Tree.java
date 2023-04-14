@@ -2,6 +2,7 @@ package entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import utils.DataLoader;
 
@@ -10,7 +11,6 @@ import utils.DataLoader;
  * Reproduce value and grow speed will be consistent for all Trees
  */
 public class Tree extends Producer {
-
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
@@ -24,4 +24,5 @@ public class Tree extends Producer {
 		//int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, picture
 		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, GROWSPEED, STRENGTH, SPRITE);
 	}
+
 }
