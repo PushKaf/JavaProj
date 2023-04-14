@@ -15,7 +15,7 @@ public class Tree extends Producer {
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
 	public static int ENERGY = 500;
-	public static int REPRODUCEVAL = 1000;
+	public static int REPRODUCEVAL = 750;
 	public static int GROWSPEED = 1;
 	public static int STRENGTH = 1;
 	
@@ -24,5 +24,4 @@ public class Tree extends Producer {
 		//int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, picture
 		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, GROWSPEED, STRENGTH, SPRITE);
 	}
-
 }

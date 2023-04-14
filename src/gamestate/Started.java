@@ -36,7 +36,7 @@ public class Started {
 		dog = new Dog(100, 100);
 		tree = new Tree(100, 1000);
 		
-		main.add(new Tree(0, 10));
+		main.add(new Tree(500, 500));
 		main.add(new Dog(1000, 100));
 		
 		inventory = new Inventory(gamePanel);

@@ -42,13 +42,21 @@ public class Inventory {
 		items.add(new Dog(0, 0));
 		items.add(new Tree(0, 0));
 		
-		for(Creature c : items) {
+		for(int i = 0; i < items.size(); i++) {
+			Creature c = items.get(i);
 			JButton creature = new JButton(new ImageIcon(c.getSprite().getScaledInstance(100, 70, Image.SCALE_SMOOTH)));
 			creature.setBorder(null);
 			creature.setOpaque(false);
 			creature.setContentAreaFilled(false);
 			creature.setMargin(new Insets(5,5,5,5));
-			creature.addActionListener(e -> Started.main.add(new Dog(rand.nextInt(1000), rand.nextInt(1000))));
+			
+			//Temporary Code: Create method!!!
+			if(i == 0)
+			{
+				creature.addActionListener(e -> Started.main.add(new Dog(rand.nextInt(1000), rand.nextInt(1000))));
+			} else {
+				creature.addActionListener(e -> Started.main.add(new Tree(rand.nextInt(1000), rand.nextInt(1000))));
+			}
 //			creature.setPreferredSize(new Dimension(1000, 1000));
 			
 			panel.add(creature);
@@ -92,19 +100,4 @@ public class Inventory {
 		panel.setLocation(rectX, (int)(rectY*1.855));
 
 	}
-	
-	class CreatureButton extends JButton {
-		private Creature creature;
-		
-		public CreatureButton(Creature creature) {
-			super(creature.getClass().getSimpleName());
-			this.creature = creature;
-		}
-	}
-	
-//	public void drawWindow(int x, int y, int width, int height) {
-//		Rectangle2D panel = new Rectangle2D.Float(x, y, width, height);
-//		
-//		
-//	}
 }

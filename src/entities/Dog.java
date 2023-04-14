@@ -20,7 +20,7 @@ public class Dog extends Consumer {
 	public static int ENERGY = 499;
 	public static int REPRODUCEVAL = 500;
 	public static int STRENGTH = 2;
-	public static int SPEED = 10;
+	public static int SPEED = 30;
 	
 	public Dog(int x, int y) { //Only position is unique to each Dog
 		//int x, int y, int width, int height, int energy, int reproduceVal, int strength, int speed

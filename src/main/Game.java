@@ -20,8 +20,8 @@ public class Game implements Runnable{
 	private Started started;
 	private Thread gameThread;
 	
-	private final int SET_FPS = 120;
-	private final int SET_UPS = 120;
+	private final int SET_FPS = 24;
+	private final int SET_UPS = 24;
 	private final boolean SHOW_STATS = true;
 	
 	/**
