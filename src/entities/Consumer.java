@@ -1,9 +1,11 @@
 package entities;
 
 import java.awt.Graphics;
+import java.awt.Panel;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import main.GamePanel;
 import utils.Constants;
 import utils.Constants.UI;
 
@@ -49,10 +51,10 @@ public class Consumer extends Creature {
 				incubating = true;
 			}
 		}
-		if (x > UI.WIDTH) x = 0;
-		if (y > UI.HEIGHT) y = 0;
-		if (x < 0) x = UI.WIDTH;
-		if (y < 0) y = UI.HEIGHT;
+		if (x > GamePanel.getWidthO()) x = 0;
+		if (y > GamePanel.getHeightO()) y = 0;
+		if (x < 0) x = GamePanel.getWidthO();
+		if (y < 0) y = GamePanel.getHeightO();
 	}
 	private void sense(ArrayList<Creature> main)
 	{

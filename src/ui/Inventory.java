@@ -34,7 +34,6 @@ public class Inventory {
 		this.gamePanel = gamePanel;
 		panel = new JPanel(new FlowLayout());
 //		panel.setSize(gamePanel.getWidth(), gamePanel.getHeight());
-		
 		items.add(new Dog(0, 0));
 		items.add(new Tree(0, 0));
 		items.add(new Dog(0, 0));

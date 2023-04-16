@@ -5,9 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import entities.Creature;
-import entities.Dog;
-import entities.Tree;
+import entities.*;
 import main.GamePanel;
 import ui.Inventory;
 import utils.DataLoader;
@@ -18,8 +16,6 @@ import utils.DataLoader;
 public class Started {
 
 	private BufferedImage backgroundImg;
-	private Dog dog;
-	private Tree tree;
 	private GamePanel gamePanel;
 
 	private Inventory inventory;
@@ -33,11 +29,17 @@ public class Started {
 		this.gamePanel = gamePanel;
 		backgroundImg = DataLoader.GetSpriteData(DataLoader.MAIN_BACKGROUND);
 		
-		dog = new Dog(100, 100);
-		tree = new Tree(100, 1000);
-		
-		main.add(new Tree(500, 500));
+		main.add(new Tree(500, 200));
+		main.add(new Bush(200, 500));
 		main.add(new Dog(1000, 100));
+		main.add(new Deer(1000, 100));
+		main.add(new Dragon(1000, 100));
+		main.add(new Human(1000, 100));
+		main.add(new Mouse(1000, 100));
+		main.add(new Turtle(1000, 100));
+		main.add(new Squirrel(1000, 100));
+		main.add(new Crow(1000, 100));
+		
 		
 		inventory = new Inventory(gamePanel);
 	}
@@ -54,16 +56,41 @@ public class Started {
 				if (e instanceof Dog) {	//we're going to need to make one of these lines for each class? Better way to do this?
 					c = new Dog(e.getX(), e.getY());
 				}
-				if (e instanceof Tree) {	//we're going to need to make one of these lines for each class? Better way to do this?
+				else if (e instanceof Crow) {	
+					c = new Crow(e.getX(), e.getY());
+				}
+				else if (e instanceof Deer) {	
+					c = new Deer(e.getX(), e.getY());
+				}
+				else if (e instanceof Dragon) {	
+					c = new Dragon(e.getX(), e.getY());
+				}
+				else if (e instanceof Human) {	
+					c = new Human(e.getX(), e.getY());
+				}
+				else if (e instanceof Mouse) {	
+					c = new Mouse(e.getX(), e.getY());
+				}
+				else if (e instanceof Squirrel) {	
+					c = new Squirrel(e.getX(), e.getY());
+				}
+				else if (e instanceof Turtle) {	
+					c = new Turtle(e.getX(), e.getY());
+				}
+				else if (e instanceof Tree) {
 					c = new Tree(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2);
 				}
+				else if (e instanceof Bush) {	//we're going to need to make one of these lines for each class? Better way to do this?
+					c = new Bush(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2);
+				}
+				
 				e.setEnergy(e.getReproduceVal()/2 -100);// so creatures don't keep spitting out children
 
 				main.add(c);
 			}
 		}
 		for (Creature e : main) {
-			e.update(main);
+			if (!e.delete()) e.update(main);
 		}
 	}
 	
@@ -73,8 +100,8 @@ public class Started {
 		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);
 		inventory.draw(g);
 		
-		for(Creature c : main) {
-			c.draw(g);
+		for (Creature e : main) {
+			if (!e.delete()) e.draw(g);
 		}
 	}
 	

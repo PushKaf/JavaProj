@@ -14,7 +14,7 @@ import utils.DataLoader;
  */
 public class Dog extends Consumer {
 	
-	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.DOG_ATLAS);
+	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.DOG_SPRITE);
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
 	public static int ENERGY = 499;

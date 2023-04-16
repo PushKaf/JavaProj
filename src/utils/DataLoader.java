@@ -15,8 +15,17 @@ public class DataLoader {
 	//Using constants since these will never change. Here, we'll 
 	//have a bunch of the same constant for our other images/sprites
 	public static final String MAIN_BACKGROUND = "main_background.png";
-	public static final String DOG_ATLAS = "dog_sprites.png";
-	public static final String TREE_SPRITE = "tree.jpg";
+	public static final String DOG_SPRITE = "dog_sprites.png";
+	public static final String TREE_SPRITE = "tree.png";
+	public static final String DEER_SPRITE = "deer.png";
+	public static final String BUSH_SPRITE = "bush.png";
+	public static final String DRAGON_SPRITE = "dragon.png";
+	public static final String HUMAN_SPRITE = "farmer.png";
+	public static final String CROW_SPRITE = "crow.png";
+	public static final String MOUSE_SPRITE = "mouse.png";
+	public static final String SQUIRREL_SPRITE = "squirrel.png";
+	public static final String TURTLE_SPRITE = "turtle.png";
+	
 	
 	
 	//Using BufferedImage(concrete) to load the file and read it as an actual image

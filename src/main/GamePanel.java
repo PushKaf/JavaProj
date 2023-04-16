@@ -18,9 +18,21 @@ import utils.Constants.UI;
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel {
 	
+	public static int h;
+	public static int w;
+	
+	public static int getHeightO()
+	{
+		return h;
+	}
+	
+	public static int getWidthO()
+	{
+		return w;
+	}
+	
 	private MouseInputs mouseInputs;
 	private Game game;
-	
 	
 	public GamePanel(Game game) {
 		this.game = game;
@@ -44,6 +56,8 @@ public class GamePanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		game.draw(g);
+		h = this.getHeight();
+		w = this.getWidth();
 		repaint();
 
 	}
