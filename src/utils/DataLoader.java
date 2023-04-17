@@ -1,5 +1,7 @@
 package utils;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,8 +27,9 @@ public class DataLoader {
 	public static final String MOUSE_SPRITE = "mouse.png";
 	public static final String SQUIRREL_SPRITE = "squirrel.png";
 	public static final String TURTLE_SPRITE = "turtle.png";
-	
-	
+	public static final String WOLF_SPRITE = "wolf.png";
+	public static final String TURKEY_SPRITE = "turkey.png";
+	public static final String EAGLE_SPRITE = "eagle.png";
 	
 	//Using BufferedImage(concrete) to load the file and read it as an actual image
 	public static BufferedImage GetSpriteData(String fileName) {
@@ -50,5 +53,6 @@ public class DataLoader {
 		return img;
 		
 	}
+	
 	
 }

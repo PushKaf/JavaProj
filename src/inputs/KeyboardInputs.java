@@ -20,7 +20,6 @@ public class KeyboardInputs implements KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		gamePanel.getGame().getStarted().keyPressed(e);
 		
 	}
 

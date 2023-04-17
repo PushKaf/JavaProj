@@ -17,9 +17,9 @@ public class Dog extends Consumer {
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.DOG_SPRITE);
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
-	public static int ENERGY = 499;
-	public static int REPRODUCEVAL = 500;
-	public static int STRENGTH = 2;
+	public static int ENERGY = 200;
+	public static int REPRODUCEVAL = 400;
+	public static int STRENGTH = 4;
 	public static int SPEED = 30;
 	
 	public Dog(int x, int y) { //Only position is unique to each Dog

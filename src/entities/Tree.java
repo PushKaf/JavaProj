@@ -12,10 +12,10 @@ import utils.DataLoader;
  */
 public class Tree extends Producer {
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
-	public static int WIDTH = 128;
-	public static int HEIGHT = 64;
-	public static int ENERGY = 500;
-	public static int REPRODUCEVAL = 750;
+	public static int WIDTH = 100;
+	public static int HEIGHT = 200;
+	public static int ENERGY = 100;
+	public static int REPRODUCEVAL = 150;
 	public static int GROWSPEED = 1;
 	public static int STRENGTH = 1;
 	

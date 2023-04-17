@@ -36,9 +36,11 @@ public class Started {
 		main.add(new Dragon(1000, 100));
 		main.add(new Human(1000, 100));
 		main.add(new Mouse(1000, 100));
-		main.add(new Turtle(1000, 100));
 		main.add(new Squirrel(1000, 100));
 		main.add(new Crow(1000, 100));
+		main.add(new Turkey(1000, 100));
+		main.add(new Wolf(1000, 100));
+		main.add(new Eagle(1000, 100));
 		
 		
 		inventory = new Inventory(gamePanel);
@@ -46,10 +48,18 @@ public class Started {
 	
 	
   public void update() {
+	  //clears out dead creatures
+	  	ArrayList<Creature> rep = new ArrayList<Creature>();
+	  	rep = main;
+	  	for (int x = 0; x < main.size(); x++) {
+			Creature e = main.get(x);
+	  		if (e.delete())
+				rep.remove(e);
+	  	}
+	  	main = rep;
+	  	
 		for (int x = 0; x < main.size(); x++) {
 			Creature e = main.get(x);
-			if (e.delete())
-				main.remove(e);
 			if (e.getIncubating()) {
 				e.setIncubating(false);
 				Creature c = null;
@@ -74,23 +84,30 @@ public class Started {
 				else if (e instanceof Squirrel) {	
 					c = new Squirrel(e.getX(), e.getY());
 				}
-				else if (e instanceof Turtle) {	
-					c = new Turtle(e.getX(), e.getY());
+				else if (e instanceof Turkey) {	
+					c = new Turkey(e.getX(), e.getY());
+				}
+				else if (e instanceof Wolf) {	
+					c = new Wolf(e.getX(), e.getY());
+				}
+				else if (e instanceof Eagle) {	
+					c = new Eagle(e.getX(), e.getY());
 				}
 				else if (e instanceof Tree) {
-					c = new Tree(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2);
+					c = new Tree(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2 - 50);
 				}
 				else if (e instanceof Bush) {	//we're going to need to make one of these lines for each class? Better way to do this?
-					c = new Bush(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2);
+					c = new Bush(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2 - 50);
 				}
 				
-				e.setEnergy(e.getReproduceVal()/2 -100);// so creatures don't keep spitting out children
+				e.setEnergy(e.getReproduceVal()/2);// so creatures don't keep spitting out children
 
 				main.add(c);
 			}
 		}
-		for (Creature e : main) {
-			if (!e.delete()) e.update(main);
+		for (int x = 0; x < main.size(); x++) {
+			Creature e = main.get(x);
+			e.update(main);
 		}
 	}
 	
@@ -99,14 +116,10 @@ public class Started {
 		//Specifying image, (0,0) upper left start pos, (1280x720) size of window, null->imageObserver, will always be null for us
 		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);
 		inventory.draw(g);
-		
-		for (Creature e : main) {
-			if (!e.delete()) e.draw(g);
+	  	
+	  	for (int x = 0; x < main.size(); x++) {
+			Creature e = main.get(x);
+			e.draw(g);
 		}
-	}
-	
-	//
-	public void keyPressed(KeyEvent e) {
-//		dog.keyPressed(e);
 	}
 }

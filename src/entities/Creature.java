@@ -15,6 +15,7 @@ public class Creature extends Entity {
 		energy = 0;
 		incubating = false;
 		reproduceVal = 10000;
+		delete = true;
 	}
 	
 	public Creature(int x, int y, int width, int height, int energy, int reproduceVal, int strength, BufferedImage sprite) {
