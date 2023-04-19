@@ -1,9 +1,7 @@
 package entities;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
+import gamestate.Started;
 import utils.DataLoader;
 
 /*
@@ -23,5 +21,9 @@ public class Bush extends Producer {
 	public Bush(int x, int y) { //Only position is unique to each Tree
 		//int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, picture
 		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, GROWSPEED, STRENGTH, SPRITE);
+	}
+	
+	public void spawnCreature(int x, int y) {
+		Started.main.add(new Bush(x, y));
 	}
 }

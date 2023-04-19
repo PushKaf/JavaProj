@@ -1,7 +1,6 @@
 package gamestate;
 
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -29,38 +28,28 @@ public class Started {
 		this.gamePanel = gamePanel;
 		backgroundImg = DataLoader.GetSpriteData(DataLoader.MAIN_BACKGROUND);
 		
-		main.add(new Tree(500, 200));
-		main.add(new Bush(200, 500));
-		main.add(new Dog(1000, 100));
-		main.add(new Deer(1000, 100));
-		main.add(new Dragon(1000, 100));
-		main.add(new Human(1000, 100));
-		main.add(new Mouse(1000, 100));
-		main.add(new Squirrel(1000, 100));
-		main.add(new Crow(1000, 100));
-		main.add(new Turkey(1000, 100));
-		main.add(new Wolf(1000, 100));
-		main.add(new Eagle(1000, 100));
-		
-		
 		inventory = new Inventory(gamePanel);
 	}
 	
-	
-  public void update() {
-	  //clears out dead creatures
+	public void update() {
+		
+		//clears out dead creatures
 	  	ArrayList<Creature> rep = new ArrayList<Creature>();
-	  	rep = main;
-	  	for (int x = 0; x < main.size(); x++) {
-			Creature e = main.get(x);
-	  		if (e.delete())
-				rep.remove(e);
-	  	}
-	  	main = rep;
-	  	
+		rep = main;
 		for (int x = 0; x < main.size(); x++) {
 			Creature e = main.get(x);
+		  	if (e.delete()) {
+		  		rep.remove(e);		  		
+		  	}
+		}
+		
+		main = rep;
+		
+		for (int x = 0; x < main.size(); x++) {
+			Creature e = main.get(x);
+			
 			if (e.getIncubating()) {
+				
 				e.setIncubating(false);
 				Creature c = null;
 				if (e instanceof Dog) {	//we're going to need to make one of these lines for each class? Better way to do this?
@@ -101,17 +90,17 @@ public class Started {
 				}
 				
 				e.setEnergy(e.getReproduceVal()/2);// so creatures don't keep spitting out children
-
 				main.add(c);
 			}
 		}
+		
 		for (int x = 0; x < main.size(); x++) {
 			Creature e = main.get(x);
 			e.update(main);
 		}
 	}
-	
-	//Drawing the background
+		
+		//Drawing the background
 	public void draw(Graphics g) {
 		//Specifying image, (0,0) upper left start pos, (1280x720) size of window, null->imageObserver, will always be null for us
 		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);

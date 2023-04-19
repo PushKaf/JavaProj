@@ -3,6 +3,7 @@ package entities;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import gamestate.Started;
 
 public class Creature extends Entity {
 	protected int energy; //Current energy of the creature, used for various functions
@@ -26,13 +27,17 @@ public class Creature extends Entity {
 		this.sprite = sprite;
 	}
 	
-	public void update(ArrayList<Creature> main)
-	{
+	public void update(ArrayList<Creature> main) {
 		//meant to be overriden
 	}
-	public void draw(Graphics g)
-	{
+	
+	public void draw(Graphics g) {
 		//meant to be overriden, there a better way to do this?
+	}
+	
+	//All will overide, this should be abstract... but 
+	public void spawnCreature(int x, int y) {
+		Started.main.add(this);
 	}
 	
 	//Accessors and Mutators
@@ -66,8 +71,7 @@ public class Creature extends Entity {
 	public void setStrength(int strength) {
 		this.strength = strength;
 	}
-	public BufferedImage getSprite()
-	{
+	public BufferedImage getSprite() {
 		return sprite;
 	}
 

@@ -37,6 +37,11 @@ abstract class Entity {
 		return y;
 	}
 	
+	public void setXY(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
 	public Entity(int x, int y, int width, int height, int strength) {
 		this.x = x;
 		this.y = y;

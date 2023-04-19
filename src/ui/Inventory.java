@@ -15,11 +15,22 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
+import entities.Bush;
 import entities.Creature;
+import entities.Crow;
+import entities.Deer;
 import entities.Dog;
+import entities.Dragon;
+import entities.Eagle;
+import entities.Human;
+import entities.Mouse;
+import entities.Squirrel;
 import entities.Tree;
-import gamestate.Started;
+import entities.Turkey;
+import entities.Turtle;
+import entities.Wolf;
 import main.GamePanel;
 
 
@@ -33,30 +44,31 @@ public class Inventory {
 	public Inventory(GamePanel gamePanel) {
 		this.gamePanel = gamePanel;
 		panel = new JPanel(new FlowLayout());
+		
 //		panel.setSize(gamePanel.getWidth(), gamePanel.getHeight());
 		items.add(new Dog(0, 0));
 		items.add(new Tree(0, 0));
-		items.add(new Dog(0, 0));
-		items.add(new Tree(0, 0));		
-		items.add(new Dog(0, 0));
-		items.add(new Tree(0, 0));
+		items.add(new Bush(0, 0));
+		items.add(new Crow(0, 0));
+		items.add(new Deer(0, 0));
+		items.add(new Dragon(0, 0));
+		items.add(new Eagle(0, 0));
+		items.add(new Human(0, 0));
+		items.add(new Mouse(0, 0));
+		items.add(new Squirrel(0, 0));
+		items.add(new Turkey(0, 0));
+		items.add(new Turtle(0, 0));
+		items.add(new Wolf(0, 0));
 		
 		for(int i = 0; i < items.size(); i++) {
 			Creature c = items.get(i);
-			JButton creature = new JButton(new ImageIcon(c.getSprite().getScaledInstance(100, 70, Image.SCALE_SMOOTH)));
+			JButton creature = new JButton(new ImageIcon(c.getSprite().getScaledInstance(90, 50, Image.SCALE_SMOOTH)));
+			
 			creature.setBorder(null);
 			creature.setOpaque(false);
 			creature.setContentAreaFilled(false);
 			creature.setMargin(new Insets(5,5,5,5));
-			
-			//Temporary Code: Create method!!!
-			if(i == 0)
-			{
-				creature.addActionListener(e -> Started.main.add(new Dog(rand.nextInt(1000), rand.nextInt(1000))));
-			} else {
-				creature.addActionListener(e -> Started.main.add(new Tree(rand.nextInt(1000), rand.nextInt(1000))));
-			}
-//			creature.setPreferredSize(new Dimension(1000, 1000));
+			creature.addActionListener(e -> c.spawnCreature(rand.nextInt((int) gamePanel.getSize().getWidth()), rand.nextInt((int) gamePanel.getSize().getHeight())));
 			
 			panel.add(creature);
 		}
@@ -65,38 +77,41 @@ public class Inventory {
 			@Override
 			public void componentResized(ComponentEvent e) {
 				Dimension size = e.getComponent().getSize();
+				Dimension panelSize = gamePanel.getSize();
 				
-				int btnWidth = (int)(size.getWidth()*.1);
-				int btnHeight = (int)(size.getHeight()*.9);
-				
+				int btnWidth = (int)(size.getWidth()*.09);
+				int btnHeight = (int)(size.getHeight()*.85);
+
 				for(Component c : panel.getComponents()) {	
 					c.setPreferredSize(new Dimension(btnWidth, btnHeight));
 				}
 				
-				panel.revalidate();
+				int rectWidth = (int) (panelSize.getWidth()*.93);
+				int rectHeight = (int) (panelSize.getHeight()*.10);
+				
+				int rectX = (int) ((panelSize.getWidth() - rectWidth)/2);
+				int rectY = (int) ((panelSize.getHeight() - rectHeight)/2);
+
+				panel.setSize(rectWidth, rectHeight);
+				panel.setLocation(rectX, (int)(rectY*1.855));
+				
+//				panel.revalidate();
 			}
-			
 		});
 		
-		gamePanel.add(panel, BorderLayout.NORTH);
-		
+		gamePanel.add(panel, BorderLayout.SOUTH);
 	}
 	
 	public void draw(Graphics g) {
-		Dimension size = gamePanel.getSize();
-		
-//		g.setColor(Color.CYAN);
-		
-		int rectWidth = (int) (size.getWidth()*.90);
-		int rectHeight = (int) (size.getHeight()*.10);
-
-		int rectX = (int) ((size.getWidth() - rectWidth)/2);
-		int rectY = (int) ((size.getHeight() - rectHeight)/2);
-//		
-//		g.fillRoundRect((int)(rectX), (int)(rectY*1.855), rectWidth, rectHeight, 25, 25);
-//		
-		panel.setSize(rectWidth, rectHeight);
-		panel.setLocation(rectX, (int)(rectY*1.855));
-
+//		Dimension size = gamePanel.getSize();
+//
+//		int rectWidth = (int) (size.getWidth()*.93);
+//		int rectHeight = (int) (size.getHeight()*.10);
+//
+//		int rectX = (int) ((size.getWidth() - rectWidth)/2);
+//		int rectY = (int) ((size.getHeight() - rectHeight)/2);
+//
+//		panel.setSize(rectWidth, rectHeight);
+//		panel.setLocation(rectX, (int)(rectY*1.855));
 	}
 }

@@ -1,9 +1,7 @@
 package entities;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
+import gamestate.Started;
 import utils.DataLoader;
 
 /*
@@ -12,8 +10,8 @@ import utils.DataLoader;
  */
 public class Tree extends Producer {
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
-	public static int WIDTH = 100;
-	public static int HEIGHT = 200;
+	public static int WIDTH = 128;
+	public static int HEIGHT = 64;
 	public static int ENERGY = 100;
 	public static int REPRODUCEVAL = 150;
 	public static int GROWSPEED = 1;
@@ -23,5 +21,9 @@ public class Tree extends Producer {
 	public Tree(int x, int y) { //Only position is unique to each Tree
 		//int x, int y, int width, int height, int energy, int reproduceVal, int growSpeed, int strength, picture
 		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, GROWSPEED, STRENGTH, SPRITE);
+	}
+	
+	public void spawnCreature(int x, int y) {
+		Started.main.add(new Tree(x, y));
 	}
 }

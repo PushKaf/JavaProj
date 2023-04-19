@@ -1,11 +1,8 @@
 
 package entities;
 
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
+import gamestate.Started;
 import utils.DataLoader;
 
 /*
@@ -28,4 +25,7 @@ public class Dragon extends Consumer {
 		
 	}
 	
+	public void spawnCreature(int x, int y) {
+		Started.main.add(new Dragon(x, y));
+	}
 }

@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -18,28 +17,15 @@ import utils.Constants.UI;
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel {
 	
-	public static int h;
-	public static int w;
-	
-	public static int getHeightO()
-	{
-		return h;
-	}
-	
-	public static int getWidthO()
-	{
-		return w;
-	}
-	
 	private MouseInputs mouseInputs;
 	private Game game;
+	
+	private static int panelHeight;
+	private static int panelWidth;
 	
 	public GamePanel(Game game) {
 		this.game = game;
 		mouseInputs = new MouseInputs();
-		
-		// Add in the listeners
-//		setLayout(new BorderLayout());
 
 		setPanelSize();
 		addKeyListener(new KeyboardInputs(this));
@@ -56,10 +42,18 @@ public class GamePanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		game.draw(g);
-		h = this.getHeight();
-		w = this.getWidth();
+		panelHeight = this.getHeight();
+		panelWidth = this.getWidth();
 		repaint();
 
+	}
+	
+	public static int getPanelHeight() {
+		return panelHeight;
+	}
+	
+	public static int getPanelWidth() {
+		return panelWidth;
 	}
 	
 	public Game getGame() {

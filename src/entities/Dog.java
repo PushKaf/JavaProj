@@ -1,11 +1,8 @@
 
 package entities;
 
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
+import gamestate.Started;
 import utils.DataLoader;
 
 /*
@@ -27,6 +24,10 @@ public class Dog extends Consumer {
 		//I set energy to 499 to maximize dog life without having it reproduce so it can only reproduce after it eats a tree
 		super(x, y, WIDTH, HEIGHT, ENERGY, REPRODUCEVAL, STRENGTH, SPEED, SPRITE);
 		
+	}
+	
+	public void spawnCreature(int x, int y) {
+		Started.main.add(new Dog(x, y));
 	}
 	
 //	//Key inputs

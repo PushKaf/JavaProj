@@ -36,19 +36,15 @@ abstract class Producer extends Creature {
 	}
 	
 	@Override
-	public void update(ArrayList<Creature> main)
-	{
-		if (energy <= 0)
-			delete = true;
-		else
-		{
+	public void update(ArrayList<Creature> main) {
+		if (energy <= 0) {
+			delete = true;	
+		}		
+		else {
 			energy += growSpeed;
-			if (energy >= reproduceVal)
-			{
+			if (energy >= reproduceVal) {
 				incubating = true;
 			}
 		}
 	}
-	
-	
 }
