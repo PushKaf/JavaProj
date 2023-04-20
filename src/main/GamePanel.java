@@ -5,8 +5,6 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import inputs.KeyboardInputs;
-import inputs.MouseInputs;
 import utils.Constants.UI;
 
 /*
@@ -16,8 +14,6 @@ import utils.Constants.UI;
  */
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel {
-	
-	private MouseInputs mouseInputs;
 	private Game game;
 	
 	private static int panelHeight;
@@ -25,12 +21,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(Game game) {
 		this.game = game;
-		mouseInputs = new MouseInputs();
-
 		setPanelSize();
-		addKeyListener(new KeyboardInputs(this));
-		addMouseListener(mouseInputs);
-		addMouseMotionListener(mouseInputs);
 	}
 	
 	private void setPanelSize() {
@@ -44,8 +35,6 @@ public class GamePanel extends JPanel {
 		game.draw(g);
 		panelHeight = this.getHeight();
 		panelWidth = this.getWidth();
-		repaint();
-
 	}
 	
 	public static int getPanelHeight() {

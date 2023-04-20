@@ -13,16 +13,20 @@ import gamestate.Started;
  *  Needs to be Runnable since we're using threads to separate the game loop and actual content.
  */
 public class Game implements Runnable{
-	private final double NANOSECOND_PER_SECOND = 1000000000.0;
+	private static final double NANOSECOND_PER_SECOND = 1000000000.0;
 
 	private GameWindow gameWindow;
 	private GamePanel gamePanel;
 	private Started started;
 	private Thread gameThread;
 	
-	private final int SET_FPS = 24;
-	private final int SET_UPS = 24;
+	private static int SET_FPS = 60;
+	private static int SET_UPS = 10;
 	private final boolean SHOW_STATS = true;
+	
+	//Need these here, so we can update times
+	static double timePerUpdate;
+	static double timePerFrame;
 	
 	/**
 	 * 	Brings everything together by initializing classes
@@ -73,8 +77,8 @@ public class Game implements Runnable{
 	public void run() {
 		//The amount of time per each individual update/frame
 		//1 billion is used to convert seconds, to nanoseconds
-		double timePerUpdate = NANOSECOND_PER_SECOND/SET_UPS;
-		double timePerFrame = NANOSECOND_PER_SECOND/SET_FPS;
+		timePerUpdate = NANOSECOND_PER_SECOND/SET_UPS;
+		timePerFrame = NANOSECOND_PER_SECOND/SET_FPS;
 		
 		long pTime = System.nanoTime();
 		
@@ -88,34 +92,34 @@ public class Game implements Runnable{
 		double deltaU = 0;
 		
 		//Actual "game loop"
-		while(true) {
+		while(true) {				
 			long curTime = System.nanoTime();
 			
 			//Calculates and adds the number of timePerUpdate/Frame intervals that have passed
-			deltaF += (curTime - pTime)/timePerUpdate;
-			deltaU += (curTime - pTime)/timePerFrame;
+			deltaF += (curTime - pTime)/timePerFrame;
+			deltaU += (curTime - pTime)/timePerUpdate;
 			
 			//set the previous time to the current time
 			pTime = curTime;
-			
+				
 			//If more than one interval has passed for any delta value, do the corresponding body
 			if(deltaU >= 1) {
 				update();
 				updates++;
 				deltaU--;
 			}
-			
+				
 			if(deltaF >= 1) {
 				gamePanel.repaint();
 				frames++;
 				deltaF--;
 			}
-			
+				
 			//Showing FPS and UPS
 			if(SHOW_STATS) {				
-				if(System.currentTimeMillis() - lastChecked == 1000) {
+				if(System.currentTimeMillis() - lastChecked >= 1000) {
 					
-					//Update when we lastchecked and display info
+					//Update when we last checked and display info
 					lastChecked = System.currentTimeMillis();
 					System.out.printf("FPS: %d | UPS: %d %n", frames, updates);
 					
@@ -129,5 +133,18 @@ public class Game implements Runnable{
 	
 	public Started getStarted() {
 		return started;
+	}
+	
+	public static void setUPS(int ups) {
+		if(ups >= 0) {
+			SET_UPS = ups;
+			
+			//update this, so no updates will actually happen
+			timePerUpdate = NANOSECOND_PER_SECOND/SET_UPS;			
+		}
+	}
+	
+	public static int getUPS() {
+		return SET_UPS;
 	}
 }

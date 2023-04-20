@@ -4,9 +4,22 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import entities.*;
+import entities.Bush;
+import entities.Creature;
+import entities.Crow;
+import entities.Deer;
+import entities.Dog;
+import entities.Dragon;
+import entities.Eagle;
+import entities.Human;
+import entities.Mouse;
+import entities.Squirrel;
+import entities.Tree;
+import entities.Turkey;
+import entities.Wolf;
 import main.GamePanel;
 import ui.Inventory;
+import ui.TimeButtons;
 import utils.DataLoader;
 
 /**
@@ -18,6 +31,7 @@ public class Started {
 	private GamePanel gamePanel;
 
 	private Inventory inventory;
+	private TimeButtons timeButtons;
 	
 	public static ArrayList<Creature> main = new ArrayList<Creature>();
 	
@@ -29,6 +43,7 @@ public class Started {
 		backgroundImg = DataLoader.GetSpriteData(DataLoader.MAIN_BACKGROUND);
 		
 		inventory = new Inventory(gamePanel);
+		timeButtons = new TimeButtons(gamePanel);
 	}
 	
 	public void update() {
@@ -104,7 +119,6 @@ public class Started {
 	public void draw(Graphics g) {
 		//Specifying image, (0,0) upper left start pos, (1280x720) size of window, null->imageObserver, will always be null for us
 		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);
-		inventory.draw(g);
 	  	
 	  	for (int x = 0; x < main.size(); x++) {
 			Creature e = main.get(x);

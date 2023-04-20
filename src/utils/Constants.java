@@ -8,8 +8,12 @@ public class Constants {
 		public static final int HEIGHT = 720;
 		public static final int WIDTH = 1280;
 	}
-	public static class GAME
-	{
-		//for actual game constants
+	
+	public static class CGame {
+		public static final int FPS = 60;
+		public static final int UPS = 10;
+		
+		public static final int spdUPS = 20;
+		public static final int slwUPS = 5;
 	}
 }

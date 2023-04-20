@@ -11,7 +11,7 @@ import main.GamePanel;
  * Put update, most of important info in here
  */
 public class Consumer extends Creature {
-	protected int speed;
+	private int speed;
 	//Past is to show what last direction of movement was
 	private int past = -1;
 
@@ -72,7 +72,7 @@ public class Consumer extends Creature {
 			Creature e = main.get(x);
 			//kill, harm, or ignore when hunting
 			if (viewBox.intersects(e.hitBox)) {
-				if (((strength + 2 == e.strength) || (strength + 1 == e.strength)) && (e.strength < hold.strength)) {
+				if (((strength - 2 == e.strength) || (strength - 1 == e.strength))) {
 					hold = e;
 				}
 			}
@@ -87,7 +87,6 @@ public class Consumer extends Creature {
 			moveTarget(hold.getX(), hold.getY());
 			interaction(hold);
 		}
-
 	}
 
 	private void interaction(Creature e) {
@@ -105,7 +104,7 @@ public class Consumer extends Creature {
 		}
 	}
 
-	public void move() {
+	private void move() {
 		//3/4 chance of moving in the same direction, and then a random chance of any direction
 		int z = (int) (Math.random() * 20);
 		
@@ -140,7 +139,7 @@ public class Consumer extends Creature {
 		}
 	}
 	
-	protected void moveTarget(int otherX, int otherY) {
+	private void moveTarget(int otherX, int otherY) {
 		double x1 = (otherX - x) / Math.pow((Math.pow((otherX - x), 2) + Math.pow((otherY - y), 2)), 0.5);
 		double y1 = (otherY - y) / Math.pow((Math.pow((otherX - x), 2) + Math.pow((otherY - y), 2)), 0.5);
 		
