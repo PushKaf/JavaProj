@@ -12,8 +12,8 @@ public class Bush extends Producer {
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.BUSH_SPRITE);
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
-	public static int ENERGY = 0;
-	public static int REPRODUCEVAL = 150;
+	public static int ENERGY = 25;
+	public static int REPRODUCEVAL = 175;
 	public static int GROWSPEED = 1;
 	public static int STRENGTH = 1;
 	

@@ -59,16 +59,16 @@ public class TimeButtons {
 			if(e.getSource().equals(speed)) {
 				Game.setUPS(ups+5);
 				
-				new Toast(gamePanel, String.format("Speed Up! New Speed: %d", ups));
+				new Toast(gamePanel, String.format("Speed Up! New Speed: %d", Game.getUPS()));
 			}else {
 				if(ups > 5) {
 					Game.setUPS(ups-5);	
 					
-					new Toast(gamePanel, String.format("Slow Down! New Speed: %d", ups));
+					new Toast(gamePanel, String.format("Slow Down! New Speed: %d", Game.getUPS()));
 				}else if(ups-1 != 0){
 					Game.setUPS(ups-1);
 					
-					new Toast(gamePanel, String.format("Slow Down! New Speed: %d", ups));
+					new Toast(gamePanel, String.format("Slow Down! New Speed: %d", Game.getUPS()));
 				}else {
 					new Toast(gamePanel, "Can't go lower than 1!");
 				}
