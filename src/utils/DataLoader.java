@@ -28,6 +28,7 @@ public class DataLoader {
 	public static final String WOLF_SPRITE = "wolf.png";
 	public static final String TURKEY_SPRITE = "turkey.png";
 	public static final String EAGLE_SPRITE = "eagle.png";
+	public static final String MENU = "menu.png";
 	
 	//Using BufferedImage(concrete) to load the file and read it as an actual image
 	public static BufferedImage GetSpriteData(String fileName) {

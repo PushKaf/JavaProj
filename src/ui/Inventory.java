@@ -50,8 +50,7 @@ public class Inventory {
 		items.add(new Turkey(0, 0));
 		items.add(new Wolf(0, 0));
 		
-		for(int i = 0; i < items.size(); i++) {
-			Creature c = items.get(i);
+		for(Creature c : items) {
 			JButton creature = new JButton(new ImageIcon(c.getSprite().getScaledInstance(90, 50, Image.SCALE_SMOOTH)));
 			
 			creature.setBorder(null);

@@ -2,7 +2,12 @@ package main;
 
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import gamestate.Started;
+import utils.DataLoader;
+import utils.Toast;
 
 
 /**
@@ -68,6 +73,8 @@ public class Game implements Runnable{
 		gamePanel = new GamePanel(this);
 		started = new Started(gamePanel);
 		gameWindow = new GameWindow(gamePanel);
+		
+		new Toast(gamePanel, new JLabel(new ImageIcon(DataLoader.GetSpriteData(DataLoader.MENU))), gamePanel.getWidth(), gamePanel.getHeight(), 5, true);
 	}
 
 	/**

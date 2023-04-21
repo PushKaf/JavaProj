@@ -118,11 +118,15 @@ public class Started {
 		//Drawing the background
 	public void draw(Graphics g) {
 		//Specifying image, (0,0) upper left start pos, (1280x720) size of window, null->imageObserver, will always be null for us
-		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);
+
+		g.drawImage(backgroundImg, 0, 0, gamePanel.getWidth(), gamePanel.getHeight(), null);			
 	  	
 	  	for (int x = 0; x < main.size(); x++) {
 			Creature e = main.get(x);
 			e.draw(g);
 		}
 	}
+	
+	
+	
 }
