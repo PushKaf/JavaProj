@@ -30,8 +30,8 @@ abstract class Producer extends Creature {
 	//All producers will need a draw and update method
 	@Override
 	public void draw(Graphics g) {
-		drawViewBox(g);
-		drawHitBox(g);
+		//drawViewBox(g);
+		//drawHitBox(g);
 		g.drawImage(sprite, x, y, 128, 64, null);
 	}
 	

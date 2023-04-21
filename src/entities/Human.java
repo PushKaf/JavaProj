@@ -14,8 +14,8 @@ public class Human extends Consumer {
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.HUMAN_SPRITE);
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
-	public static int ENERGY = 200;
-	public static int REPRODUCEVAL = 400;
+	public static int ENERGY = 300;
+	public static int REPRODUCEVAL = 500;
 	public static int STRENGTH = 4;
 	public static int SPEED = 25;
 	

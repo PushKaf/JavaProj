@@ -99,9 +99,11 @@ public class Started {
 				}
 				else if (e instanceof Tree) {
 					c = new Tree(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2 - 50);
+					c.setReproduceVal(c.getReproduceVal() * 2);
 				}
 				else if (e instanceof Bush) {	//we're going to need to make one of these lines for each class? Better way to do this?
 					c = new Bush(e.getX() + (int)(Math.random()*Tree.WIDTH) - Tree.WIDTH/2 - 50, e.getY()+ (int)(Math.random()*Tree.HEIGHT) - Tree.HEIGHT/2 - 50);
+					c.setReproduceVal(c.getReproduceVal() * 2);
 				}
 				
 				e.setEnergy(e.getReproduceVal()/2);// so creatures don't keep spitting out children

@@ -15,7 +15,7 @@ public class Mouse extends Consumer {
 	public static int WIDTH = 50;
 	public static int HEIGHT = 50;
 	public static int ENERGY = 100;
-	public static int REPRODUCEVAL = 150;
+	public static int REPRODUCEVAL = 100;
 	public static int STRENGTH = 2;
 	public static int SPEED = 20;
 	

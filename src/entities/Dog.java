@@ -15,7 +15,7 @@ public class Dog extends Consumer {
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
 	public static int ENERGY = 200;
-	public static int REPRODUCEVAL = 400;
+	public static int REPRODUCEVAL = 300;
 	public static int STRENGTH = 4;
 	public static int SPEED = 30;
 	

@@ -34,7 +34,7 @@ public class Toast extends JDialog {
 		
 		//Format Label
 		info.setFont(new Font("Times New Roman", Font.BOLD, 17));
-		info.setForeground(Color.WHITE);
+		info.setForeground(Color.BLACK);
 		info.setHorizontalAlignment(JLabel.CENTER);
 		info.setVerticalAlignment(JLabel.CENTER);
 

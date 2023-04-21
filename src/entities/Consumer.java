@@ -93,10 +93,9 @@ public class Consumer extends Creature {
 		//When hurt/killed, energy is stolen like a leech
 		if (e.hitBox.intersects(hitBox)) {
 			if (strength == e.strength + 2) {
-				e.delete = true;
+				setEnergy(e.getEnergy() + getEnergy());
 				e.setEnergy(0);
-				setEnergy(e.getEnergy() / 2 + getEnergy());
-				
+				e.delete = true;
 			} else if (strength == e.strength + 1) {
 				e.setEnergy(e.getEnergy() / 2 - 30);
 				setEnergy(e.getEnergy() / 4 + getEnergy());

@@ -78,9 +78,8 @@ public class TimeButtons {
 		}
 	}
 	
+	//Code for pausing button
 	public void pauseControls() {
-		System.out.println(pause.getText());
-		
 		if(pause.getText().equals(PAUSE_UNI)) {
 			Game.setUPS(0);
 			pause.setText(PLAY_UNI);

@@ -13,7 +13,7 @@ public class Bush extends Producer {
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
 	public static int ENERGY = 50;
-	public static int REPRODUCEVAL = 100;
+	public static int REPRODUCEVAL = 150;
 	public static int GROWSPEED = 1;
 	public static int STRENGTH = 1;
 	
