@@ -12,7 +12,7 @@ public class Tree extends Producer {
 	public static BufferedImage SPRITE = DataLoader.GetSpriteData(DataLoader.TREE_SPRITE);
 	public static int WIDTH = 128;
 	public static int HEIGHT = 64;
-	public static int ENERGY = 200;
+	public static int ENERGY = 0;
 	public static int REPRODUCEVAL = 300;
 	public static int GROWSPEED = 1;
 	public static int STRENGTH = 1;
