@@ -21,6 +21,8 @@ import main.GamePanel;
 import ui.Inventory;
 import ui.TimeButtons;
 import utils.DataLoader;
+import utils.Toast;
+import utils.Constants.CGame;
 
 /**
  * 	State where the simulation has started
@@ -63,7 +65,7 @@ public class Started {
 		for (int x = 0; x < main.size(); x++) {
 			Creature e = main.get(x);
 			
-			if (e.getIncubating()) {
+			if (e.getIncubating() && main.size() < CGame.MAX_ENTITIES) {
 				
 				e.setIncubating(false);
 				Creature c = null;
@@ -107,7 +109,8 @@ public class Started {
 				}
 				
 				e.setEnergy(e.getReproduceVal()/2);// so creatures don't keep spitting out children
-				main.add(c);
+				
+				main.add(c);					
 			}
 		}
 		

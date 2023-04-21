@@ -23,7 +23,10 @@ import entities.Squirrel;
 import entities.Tree;
 import entities.Turkey;
 import entities.Wolf;
+import gamestate.Started;
 import main.GamePanel;
+import utils.Constants.CGame;
+import utils.Toast;
 
 
 public class Inventory {
@@ -57,7 +60,13 @@ public class Inventory {
 			creature.setOpaque(false);
 			creature.setContentAreaFilled(false);
 			creature.setMargin(new Insets(3,3,3,3));
-			creature.addActionListener(e -> c.spawnCreature(rand.nextInt((int) gamePanel.getSize().getWidth()), rand.nextInt((int) gamePanel.getSize().getHeight())));
+			creature.addActionListener(e -> {
+				if(Started.main.size() < CGame.MAX_ENTITIES) {
+					c.spawnCreature(rand.nextInt((int) gamePanel.getSize().getWidth()), rand.nextInt((int) gamePanel.getSize().getHeight()));									
+				}else {
+					new Toast(gamePanel, "Max Reached", 500);
+				}
+			});
 			
 			panel.add(creature);
 		}

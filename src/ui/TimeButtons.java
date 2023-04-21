@@ -57,9 +57,12 @@ public class TimeButtons {
 		
 		if(ups != 0) {			
 			if(e.getSource().equals(speed)) {
-				Game.setUPS(ups+5);
-				
-				new Toast(gamePanel, String.format("Speed Up! New Speed: %d", Game.getUPS()));
+				if(ups+5 <= CGame.MAX_UPS) {
+					Game.setUPS(ups+5);
+					new Toast(gamePanel, String.format("Speed Up! New Speed: %d", Game.getUPS()));
+				}else {
+					new Toast(gamePanel, "Max Speed Reached!");
+				}
 			}else {
 				if(ups > 5) {
 					Game.setUPS(ups-5);	

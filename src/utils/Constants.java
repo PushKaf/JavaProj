@@ -13,7 +13,7 @@ public class Constants {
 		public static final int FPS = 60;
 		public static final int UPS = 10;
 		
-		public static final int spdUPS = 20;
-		public static final int slwUPS = 5;
+		public static final int MAX_UPS = 100;
+		public static final int MAX_ENTITIES = 1000;
 	}
 }
